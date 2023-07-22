@@ -1,0 +1,12 @@
+C:\Users\Nadim\RiderProjects\CMS\CMS.Entities\bin\Debug\net6.0\CMS.Entities.deps.json
+C:\Users\Nadim\RiderProjects\CMS\CMS.Entities\bin\Debug\net6.0\CMS.Entities.dll
+C:\Users\Nadim\RiderProjects\CMS\CMS.Entities\bin\Debug\net6.0\CMS.Entities.pdb
+C:\Users\Nadim\RiderProjects\CMS\CMS.Entities\obj\Debug\net6.0\CMS.Entities.csproj.AssemblyReference.cache
+C:\Users\Nadim\RiderProjects\CMS\CMS.Entities\obj\Debug\net6.0\CMS.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nadim\RiderProjects\CMS\CMS.Entities\obj\Debug\net6.0\CMS.Entities.AssemblyInfoInputs.cache
+C:\Users\Nadim\RiderProjects\CMS\CMS.Entities\obj\Debug\net6.0\CMS.Entities.AssemblyInfo.cs
+C:\Users\Nadim\RiderProjects\CMS\CMS.Entities\obj\Debug\net6.0\CMS.Entities.csproj.CoreCompileInputs.cache
+C:\Users\Nadim\RiderProjects\CMS\CMS.Entities\obj\Debug\net6.0\CMS.Entities.dll
+C:\Users\Nadim\RiderProjects\CMS\CMS.Entities\obj\Debug\net6.0\refint\CMS.Entities.dll
+C:\Users\Nadim\RiderProjects\CMS\CMS.Entities\obj\Debug\net6.0\CMS.Entities.pdb
+C:\Users\Nadim\RiderProjects\CMS\CMS.Entities\obj\Debug\net6.0\ref\CMS.Entities.dll

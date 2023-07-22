@@ -1,0 +1,7 @@
+C:\Users\Nadim\RiderProjects\CMS_TDD\Templete.RestApi\obj\Debug\net6.0\Templete.RestApi.csproj.AssemblyReference.cache
+C:\Users\Nadim\RiderProjects\CMS_TDD\Templete.RestApi\obj\Debug\net6.0\Templete.RestApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nadim\RiderProjects\CMS_TDD\Templete.RestApi\obj\Debug\net6.0\Templete.RestApi.AssemblyInfoInputs.cache
+C:\Users\Nadim\RiderProjects\CMS_TDD\Templete.RestApi\obj\Debug\net6.0\Templete.RestApi.AssemblyInfo.cs
+C:\Users\Nadim\RiderProjects\CMS_TDD\Templete.RestApi\obj\Debug\net6.0\Templete.RestApi.csproj.CoreCompileInputs.cache
+C:\Users\Nadim\RiderProjects\CMS_TDD\Templete.RestApi\obj\Debug\net6.0\Templete.RestApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Nadim\RiderProjects\CMS_TDD\Templete.RestApi\obj\Debug\net6.0\Templete.RestApi.MvcApplicationPartsAssemblyInfo.cache

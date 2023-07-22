@@ -1,0 +1,15 @@
+C:\Users\Nadim\RiderProjects\CMS_TDD\Templete.Services\bin\Debug\net6.0\Templete.Services.deps.json
+C:\Users\Nadim\RiderProjects\CMS_TDD\Templete.Services\bin\Debug\net6.0\Templete.Services.dll
+C:\Users\Nadim\RiderProjects\CMS_TDD\Templete.Services\bin\Debug\net6.0\Templete.Services.pdb
+C:\Users\Nadim\RiderProjects\CMS_TDD\Templete.Services\bin\Debug\net6.0\Templete.Entities.dll
+C:\Users\Nadim\RiderProjects\CMS_TDD\Templete.Services\bin\Debug\net6.0\Templete.Entities.pdb
+C:\Users\Nadim\RiderProjects\CMS_TDD\Templete.Services\obj\Debug\net6.0\Templete.Services.csproj.AssemblyReference.cache
+C:\Users\Nadim\RiderProjects\CMS_TDD\Templete.Services\obj\Debug\net6.0\Templete.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nadim\RiderProjects\CMS_TDD\Templete.Services\obj\Debug\net6.0\Templete.Services.AssemblyInfoInputs.cache
+C:\Users\Nadim\RiderProjects\CMS_TDD\Templete.Services\obj\Debug\net6.0\Templete.Services.AssemblyInfo.cs
+C:\Users\Nadim\RiderProjects\CMS_TDD\Templete.Services\obj\Debug\net6.0\Templete.Services.csproj.CoreCompileInputs.cache
+C:\Users\Nadim\RiderProjects\CMS_TDD\Templete.Services\obj\Debug\net6.0\Templete.Services.csproj.CopyComplete
+C:\Users\Nadim\RiderProjects\CMS_TDD\Templete.Services\obj\Debug\net6.0\Templete.Services.dll
+C:\Users\Nadim\RiderProjects\CMS_TDD\Templete.Services\obj\Debug\net6.0\refint\Templete.Services.dll
+C:\Users\Nadim\RiderProjects\CMS_TDD\Templete.Services\obj\Debug\net6.0\Templete.Services.pdb
+C:\Users\Nadim\RiderProjects\CMS_TDD\Templete.Services\obj\Debug\net6.0\ref\Templete.Services.dll

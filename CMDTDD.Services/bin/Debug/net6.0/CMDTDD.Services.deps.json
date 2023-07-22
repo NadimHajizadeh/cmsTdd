@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "CMDTDD.Services/1.0.0": {
+        "dependencies": {
+          "CMDTDD.Entities": "1.0.0"
+        },
+        "runtime": {
+          "CMDTDD.Services.dll": {}
+        }
+      },
+      "CMDTDD.Entities/1.0.0": {
+        "runtime": {
+          "CMDTDD.Entities.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CMDTDD.Services/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CMDTDD.Entities/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,24 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/CodeInspection/PencilsConfiguration/ActualSeverity/@EntryValue">SUGGESTION</s:String>
+	<s:Boolean x:Key="/Default/Environment/InlayHints/GeneralInlayHintsOptions/EnableInlayHints/@EntryValue">True</s:Boolean>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ed379bb4_002D7ced_002D48fe_002D8133_002D6fa3498921ab/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Add_Certain_add_a_complex" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Complexes.ComplexServiceTest.Add_Certain_add_a_complex&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Complexes.ComplexServiceTest.Delete_Certain_delete_a_complex&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Complexes.ComplexServiceTest.Delete_Certain_not_found_exception_throw&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Complexes.ComplexServiceTest.GetAllComplexesWithUnitCountDeatail_Certain_get_all_with_unit_count&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Complexes.ComplexServiceTest.GetAllComplexWithBlockDetails_Certain_get_with_blocks&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Complexes.ComplexServiceTest.GetAllUsageTypesById_Certain_get_complex&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Blocks.BlockServiceTest.Add_Certain_add_a_block&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Blocks.BlockServiceTest.Add_Certain_exception_throw_invalid_complexId&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Complexes.ComplexServiceTest.GetAllComplexWithBlockDetails_Certain_blockName_not_null&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Complexes.ComplexServiceTest.Update_Certain_update_a_complex&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Complexes.ComplexServiceTest.Update_Certain_exception_complex_not_found&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Complexes.ComplexServiceTest.GetAllUsageTypesById_Certain_exception_complex_not_found&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Complexes.ComplexServiceTest.Update_Certain_exception_complex_has_unit&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Complexes.ComplexServiceTest.Delete_Certain_exception_complex_has_units&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Complexes.ComplexServiceTest.Delete_Certain_exception_invalid_complex_id&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Blocks.BlockServiceTest.Add_Certain_exception_invalid_unit_count&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Units.UnitServiceTest.Add_Certain_add_a_unit&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

@@ -1,0 +1,12 @@
+C:\Users\Nadim\RiderProjects\CMS_TDD\Templete.Entities\bin\Debug\net6.0\Templete.Entities.deps.json
+C:\Users\Nadim\RiderProjects\CMS_TDD\Templete.Entities\bin\Debug\net6.0\Templete.Entities.dll
+C:\Users\Nadim\RiderProjects\CMS_TDD\Templete.Entities\bin\Debug\net6.0\Templete.Entities.pdb
+C:\Users\Nadim\RiderProjects\CMS_TDD\Templete.Entities\obj\Debug\net6.0\Templete.Entities.csproj.AssemblyReference.cache
+C:\Users\Nadim\RiderProjects\CMS_TDD\Templete.Entities\obj\Debug\net6.0\Templete.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nadim\RiderProjects\CMS_TDD\Templete.Entities\obj\Debug\net6.0\Templete.Entities.AssemblyInfoInputs.cache
+C:\Users\Nadim\RiderProjects\CMS_TDD\Templete.Entities\obj\Debug\net6.0\Templete.Entities.AssemblyInfo.cs
+C:\Users\Nadim\RiderProjects\CMS_TDD\Templete.Entities\obj\Debug\net6.0\Templete.Entities.csproj.CoreCompileInputs.cache
+C:\Users\Nadim\RiderProjects\CMS_TDD\Templete.Entities\obj\Debug\net6.0\Templete.Entities.dll
+C:\Users\Nadim\RiderProjects\CMS_TDD\Templete.Entities\obj\Debug\net6.0\refint\Templete.Entities.dll
+C:\Users\Nadim\RiderProjects\CMS_TDD\Templete.Entities\obj\Debug\net6.0\Templete.Entities.pdb
+C:\Users\Nadim\RiderProjects\CMS_TDD\Templete.Entities\obj\Debug\net6.0\ref\Templete.Entities.dll

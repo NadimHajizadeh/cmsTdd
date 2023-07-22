@@ -1,0 +1,15 @@
+C:\Users\Nadim\RiderProjects\CMS\CMS.Services\bin\Debug\net6.0\CMS.Services.deps.json
+C:\Users\Nadim\RiderProjects\CMS\CMS.Services\bin\Debug\net6.0\CMS.Services.dll
+C:\Users\Nadim\RiderProjects\CMS\CMS.Services\bin\Debug\net6.0\CMS.Services.pdb
+C:\Users\Nadim\RiderProjects\CMS\CMS.Services\bin\Debug\net6.0\CMS.Entities.dll
+C:\Users\Nadim\RiderProjects\CMS\CMS.Services\bin\Debug\net6.0\CMS.Entities.pdb
+C:\Users\Nadim\RiderProjects\CMS\CMS.Services\obj\Debug\net6.0\CMS.Services.csproj.AssemblyReference.cache
+C:\Users\Nadim\RiderProjects\CMS\CMS.Services\obj\Debug\net6.0\CMS.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nadim\RiderProjects\CMS\CMS.Services\obj\Debug\net6.0\CMS.Services.AssemblyInfoInputs.cache
+C:\Users\Nadim\RiderProjects\CMS\CMS.Services\obj\Debug\net6.0\CMS.Services.AssemblyInfo.cs
+C:\Users\Nadim\RiderProjects\CMS\CMS.Services\obj\Debug\net6.0\CMS.Services.csproj.CoreCompileInputs.cache
+C:\Users\Nadim\RiderProjects\CMS\CMS.Services\obj\Debug\net6.0\CMS.Services.csproj.CopyComplete
+C:\Users\Nadim\RiderProjects\CMS\CMS.Services\obj\Debug\net6.0\CMS.Services.dll
+C:\Users\Nadim\RiderProjects\CMS\CMS.Services\obj\Debug\net6.0\refint\CMS.Services.dll
+C:\Users\Nadim\RiderProjects\CMS\CMS.Services\obj\Debug\net6.0\CMS.Services.pdb
+C:\Users\Nadim\RiderProjects\CMS\CMS.Services\obj\Debug\net6.0\ref\CMS.Services.dll
