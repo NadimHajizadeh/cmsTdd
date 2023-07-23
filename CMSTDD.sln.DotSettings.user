@@ -20,5 +20,16 @@
     &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Complexes.ComplexServiceTest.Delete_Certain_exception_invalid_complex_id&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Blocks.BlockServiceTest.Add_Certain_exception_invalid_unit_count&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Units.UnitServiceTest.Add_Certain_add_a_unit&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Blocks.BlockServiceTest.Add_Certain_exeption_coplex_is_full&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Blocks.BlockServiceTest.GetAllWithUnitCountDetails_Certain_gett_all&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Blocks.BlockServiceTest.GetOneBlock_Certain&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Blocks.BlockServiceTest.UpdateById_Certain_update&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Blocks.BlockServiceTest.UpdateById_Certain_block_not_found_exception&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Blocks.BlockServiceTest.UpdateById_Certain_block_has_units_exception&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Blocks.BlockServiceTest.UpdateById_Certain_blockDuplacated_Name_exception&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Blocks.BlockServiceTest.UpdateById_Certain_ComplexIsFuLLException&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Units.UnitServiceTest.Add_Certain_incalid_blockId_exception&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Units.UnitServiceTest.Add_Certain_Block_is_Full_exception&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Complexes.ComplexServiceTest.GetOne_Certain&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

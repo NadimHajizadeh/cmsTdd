@@ -8,5 +8,7 @@ public interface BlockService
     void Add(AddBlockDto dto);
 
 
-   
+    List<GetblockDto> GetAllWithUnitCountDetails();
+    GetSingleBlockDto GetById(int blockId);
+    void Update(int blockId, UpdateBlockDto dto);
 }

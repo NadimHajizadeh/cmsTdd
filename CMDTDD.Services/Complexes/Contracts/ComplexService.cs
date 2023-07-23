@@ -16,4 +16,5 @@ public interface ComplexService
 
     void Update(int id, UpdateComplexDto dto);
     void Delete(int complexId);
+    GetOneComplexWithBlockAndUnitcountDeatilAndDto GetOne(int id );
 }

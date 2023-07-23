@@ -38,6 +38,14 @@ public class ComplexControler : Controller
     {
         return _service.GetAllUsageTypesById(id);
     }
+
+    [HttpGet("{id}/get-one-with-block-detail")]
+    public GetOneComplexWithBlockAndUnitcountDeatilAndDto GetOne([FromRoute] int id)
+    {
+        return
+            _service.GetOne(id);
+
+    }
     
     [HttpPatch("{id}")]
     

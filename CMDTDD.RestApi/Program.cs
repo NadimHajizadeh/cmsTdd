@@ -20,6 +20,10 @@ builder.Services.AddScoped<ComplexService,ComplexAppService>();
 builder.Services.AddScoped<ComplexRepasitory,EFComplexRepasitory>();
 builder.Services.AddScoped<BlockRepasitory,EFBlockRepasitory>();
 builder.Services.AddScoped<BlockService,BlockAppService>();
+builder.Services.AddScoped<UnitRepasitory,EFUnitRepasitory>();
+builder.Services.AddScoped<UnitService,UnitAppService>();
+
+
 
 
 

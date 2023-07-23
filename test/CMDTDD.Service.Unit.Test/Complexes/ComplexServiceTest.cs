@@ -38,13 +38,16 @@ public class ComplexServiceTest : BusinessUnitTest
         expectet.Single().UnitCount.Should().Be(dto.UnitCount);
     }
 
-    [Fact]
+    [Theory]
+    [InlineData(ResidenseType.Empty)]
+    [InlineData(ResidenseType.Owner)]
+    [InlineData(ResidenseType.Tenant)]
     public void
-        GetAllComplexesWithUnitCountDeatail_Certain_get_all_with_unit_count()
+        GetAllComplexesWithUnitCountDeatail_Certain_get_all_with_unit_count(ResidenseType type)
     {
         var complex = ComplexFactory.Create();
         var block = BlockFactory.Create(complex);
-        var unit = UnitFatory.Create(block);
+        var unit = UnitFatory.Create(block, type);
         DbContext.Save(unit);
         var leftUnitCOunt =
             complex.UnitCount - complex.Blocks.Sum(_ => _.Units.Count());
@@ -60,12 +63,15 @@ public class ComplexServiceTest : BusinessUnitTest
         actual.LeftUnitCount.Should().Be(leftUnitCOunt);
     }
 
-    [Fact]
-    public void GetAllComplexWithBlockDetails_Certain_get_with_blocks()
+    [Theory]
+    [InlineData(ResidenseType.Empty)]
+    [InlineData(ResidenseType.Owner)]
+    [InlineData(ResidenseType.Tenant)]
+    public void GetAllComplexWithBlockDetails_Certain_get_with_blocks(ResidenseType type)
     {
         var complex = ComplexFactory.Create();
         var block = BlockFactory.Create(complex);
-        var unit = UnitFatory.Create(block);
+        var unit = UnitFatory.Create(block, type);
         DbContext.Save(unit);
         var remainingUnitCount = block.UnitCount - block.Units.Count();
         var result =
@@ -87,7 +93,7 @@ public class ComplexServiceTest : BusinessUnitTest
         var complex = ComplexFactory.Create();
         var block = BlockFactory.Create(complex);
         var blockName = "asd";
-        var block2 = BlockFactory.Create(complex,null,blockName);
+        var block2 = BlockFactory.Create(complex, null, blockName);
         DbContext.Save(block);
         DbContext.Save(block2);
 
@@ -173,18 +179,21 @@ public class ComplexServiceTest : BusinessUnitTest
         expected.UnitCount.Should().Be(dto.UnitCount);
     }
 
-    [Fact]
-    public void Update_Certain_exception_complex_has_unit()
+    [Theory]
+    [InlineData(ResidenseType.Empty)]
+    [InlineData(ResidenseType.Owner)]
+    [InlineData(ResidenseType.Tenant)]
+    public void Update_Certain_exception_complex_has_unit(ResidenseType type)
     {
         var complex = ComplexFactory.Create();
         var block = BlockFactory.Create(complex);
-        var unit = UnitFatory.Create(block);
+        var unit = UnitFatory.Create(block, type);
         DbContext.Save(unit);
         var dto = CreateUpdateComplexDto();
 
         var expected = () => _sut.Update(complex.Id, dto);
 
-    expected.Should().ThrowExactly<ComplexHasUnitException>();
+        expected.Should().ThrowExactly<ComplexHasUnitException>();
     }
 
 
@@ -212,12 +221,15 @@ public class ComplexServiceTest : BusinessUnitTest
         expected.Should().BeEmpty();
     }
 
-    [Fact]
-    public void Delete_Certain_exception_complex_has_units()
+    [Theory]
+    [InlineData(ResidenseType.Empty)]
+    [InlineData(ResidenseType.Owner)]
+    [InlineData(ResidenseType.Tenant)]
+    public void Delete_Certain_exception_complex_has_units(ResidenseType type)
     {
         var complex = ComplexFactory.Create();
         var block = BlockFactory.Create(complex);
-        var unit = UnitFatory.Create(block);
+        var unit = UnitFatory.Create(block, type);
         DbContext.Save(unit);
 
         var expexted = () => _sut.Delete(complex.Id);
@@ -229,14 +241,34 @@ public class ComplexServiceTest : BusinessUnitTest
     public void Delete_Certain_exception_invalid_complex_id()
     {
         var invalidCoplexId = 0;
-        
-        var expected = () => _sut.Delete(invalidCoplexId);
-        
-        expected.Should().ThrowExactly<InvalidComplexIdExeption>();
 
+        var expected = () => _sut.Delete(invalidCoplexId);
+
+        expected.Should().ThrowExactly<InvalidComplexIdExeption>();
     }
 
-    /////////
+    [Theory]
+    [InlineData(ResidenseType.Empty)]
+    [InlineData(ResidenseType.Owner)]
+    [InlineData(ResidenseType.Tenant)]
+    public void GetOne_Certain(ResidenseType type)
+    {
+        int registerdUnitCount = 1;
+        var complex = ComplexFactory.Create();
+        var block = BlockFactory.Create(complex);
+        var unit = UnitFatory.Create(block, type);
+        DbContext.Save(unit);
+
+        var expected = _sut.GetOne(complex.Id);
+
+        expected.Id.Should().Be(complex.Id);
+        expected.Name.Should().Be(complex.Name);
+        expected.BlockCount.Should().Be(1);
+        expected.RegisterdUnitCount.Should().Be(registerdUnitCount);
+        expected.LeftUnitCount.Should().Be(complex.UnitCount - registerdUnitCount);
+    }
+
+
     private UpdateComplexDto CreateUpdateComplexDto()
     {
         return

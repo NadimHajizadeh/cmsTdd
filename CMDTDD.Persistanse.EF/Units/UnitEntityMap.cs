@@ -15,7 +15,7 @@ public class UnitEntityMap : IEntityTypeConfiguration<Unit>
         _.Property(_ => _.Name)
             .IsRequired(true)
             .HasMaxLength(30);
-        _.Property(_ => _.ResidanseType)
+        _.Property(_ => _.ResidenseType)
             .IsRequired(true);
         _.Property(_ => _.BlockId)
             .IsRequired();

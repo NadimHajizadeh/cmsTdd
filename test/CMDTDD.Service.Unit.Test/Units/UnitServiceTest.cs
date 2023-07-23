@@ -1,14 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
-using CMDTDD.Entities;
+﻿using CMDTDD.Entities;
 using CMDTDD.Persistanse.EF;
-using CMDTDD.Services.Contracts;
+using CMS.Service.Unit.Test.Blocks;
 using CMS.Service.Unit.Test.Complexes;
 using CMS.Service.Unit.Test.DataBaseConfig;
 using CMS.Service.Unit.Test.DataBaseConfig.Unit;
 using CMS.Service.Unit.Test.Factory;
-using CMS.Service.Unit.Test.Units;
 using FluentAssertions;
-using Microsoft.EntityFrameworkCore;
 
 namespace CMS.Service.Unit.Test.Units
 {
@@ -21,93 +18,63 @@ namespace CMS.Service.Unit.Test.Units
         {
             var repasitory = new EFUnitRepasitory(SetupContext);
             var unitOfWork = new EfUnitOfWork(SetupContext);
-            _sut = new UnitAppService(unitOfWork, repasitory);
+            var blockRepasitory = new EFBlockRepasitory(SetupContext);
+            _sut = new UnitAppService(unitOfWork, repasitory,blockRepasitory);
         }
 
         [Theory]
-        [InlineData(ResidanseType.Empty)]
-        [InlineData(ResidanseType.Owner)]
-        [InlineData(ResidanseType.Tenant)]
-        public void Add_Certain_add_a_unit(ResidanseType type)
+        [InlineData(ResidenseType.Empty)]
+        [InlineData(ResidenseType.Owner)]
+        [InlineData(ResidenseType.Tenant)]
+        public void Add_Certain_add_a_unit(ResidenseType type)
         {
             var complex = ComplexFactory.Create();
             var block = BlockFactory.Create(complex);
             DbContext.Save(block);
-            var dto = new AddUnitDto()
-            {
-                Name = "dummy",
-                BlockId = block.Id,
-                ResidenseType = type
-            };
+            var dto = CreateUnitDto(type, block.Id);
 
             _sut.Add(dto);
 
             var expected = ReadContext.Set<CMDTDD.Entities.Unit>().Single();
-            expected.ResidanseType.Should().Be(type);
+            expected.ResidenseType.Should().Be(type);
             expected.BlockId.Should().Be(dto.BlockId);
             expected.Name.Should().Be(dto.Name);
 
         }
-    }
-
-    public class AddUnitDto
-
-    {
-        [Required] [MaxLength(30)] public string Name { get; set; }
-
-        [Required] public ResidanseType ResidenseType { get; set; }
-
-        public int BlockId { get; set; }
-    }
-}
 
 
-internal interface UnitService
-{
-    void Add(AddUnitDto dto);
-}
-
-public class UnitAppService : UnitService
-{
-    private readonly UnitOfWork _unitOfWork;
-    private readonly UnitRepasitory _repasitory;
-
-    public UnitAppService(UnitOfWork unitOfWork, UnitRepasitory repasitory)
-    {
-        _unitOfWork = unitOfWork;
-        _repasitory = repasitory;
-    }
-
-    public void Add(AddUnitDto dto)
-    {
-        var unit = new Unit()
+        [Fact]
+        public void Add_Certain_incalid_blockId_exception()
         {
-            Name = dto.Name,
-            ResidanseType = dto.ResidenseType,
-            BlockId = dto.BlockId,
-        };
-        _repasitory.Add(unit);
-        _unitOfWork.Complete();
-    }
-}
+            var invalidBlockId = 0;
+            var dto = CreateUnitDto(ResidenseType.Empty, invalidBlockId);
+            
+            var expexted = ()=> _sut.Add(dto);
 
-public interface UnitRepasitory
-{
-    void Add(Unit unit);
-}
+            expexted.Should().ThrowExactly<InvalidBlockIdExeption>();
+        }
+        [Fact]
+        public void Add_Certain_Block_is_Full_exception()
+        {
+            var complex = ComplexFactory.Create();
+            var block = BlockFactory.Create(complex, 0);
+            DbContext.Save(block);
+            var dto = CreateUnitDto(ResidenseType.Empty, block.Id);
+            
+            var expexted = ()=> _sut.Add(dto);
 
-public class EFUnitRepasitory : UnitRepasitory
-{
-    private readonly DbSet<Unit> _units;
+            expexted.Should().ThrowExactly<BlockIsFullException>();
+        }
 
 
-    public EFUnitRepasitory(EFDataContext context)
-    {
-        _units = context.Set<Unit>();
-    }
-
-    public void Add(Unit unit)
-    {
-        _units.Add(unit);
+        private static AddUnitDto CreateUnitDto(ResidenseType type, int blockId)
+        {
+            return new AddUnitDto()
+            {
+                Name = "dummy",
+                BlockId = blockId,
+                ResidenseType = type
+            };
+        }
     }
 }

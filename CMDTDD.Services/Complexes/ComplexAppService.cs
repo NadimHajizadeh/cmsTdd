@@ -89,4 +89,12 @@ public class ComplexAppService : ComplexService
         _repasitory.Delete(complex);
         _unitOfWork.Complete();
     }
+
+  
+
+    public GetOneComplexWithBlockAndUnitcountDeatilAndDto GetOne(int id)
+    {
+        return 
+        _repasitory.GetOne(id);
+    }
 }

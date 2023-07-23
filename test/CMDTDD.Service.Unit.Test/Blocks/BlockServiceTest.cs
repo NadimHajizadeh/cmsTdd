@@ -38,7 +38,6 @@ public class BlockServiceTest : BusinessUnitTest
         expected.ComplexId.Should().Be(complexs.Id);
     }
 
-   
 
     [Fact]
     public void Add_Certain_exception_throw_invalid_complexId()
@@ -48,7 +47,7 @@ public class BlockServiceTest : BusinessUnitTest
         var dto = CreateBlockDto(invalidComplexId);
 
         var expected = () => _sut.Add(dto);
-        
+
         expected.Should().Throw<InvalidComplexIdExeption>();
     }
 
@@ -57,22 +56,159 @@ public class BlockServiceTest : BusinessUnitTest
     {
         var complex = ComplexFactory.Create();
         DbContext.Save(complex);
-        var dto = CreateBlockDto(complex.Id,9999);
+        var dto = CreateBlockDto(complex.Id, 9999);
 
         var expected = () => _sut.Add(dto);
 
         expected.Should().ThrowExactly<InvalidUnitCountException>();
     }
-    
-    //todo asdasdasd 
-    private static AddBlockDto CreateBlockDto(int complexsId ,int? unitCount=null)
+
+
+    [Fact]
+    public void Add_Certain_exeption_coplex_is_full()
+    {
+        var complex = ComplexFactory.Create();
+        var block = BlockFactory.Create(complex);
+        DbContext.Save(block);
+        var dto = CreateBlockDto(complex.Id, 51);
+
+        var expoected = () => _sut.Add(dto);
+
+        expoected.Should().ThrowExactly<ComplexIsFullException>();
+    }
+
+    [Theory]
+    [InlineData(ResidenseType.Empty)]
+    [InlineData(ResidenseType.Owner)]
+    [InlineData(ResidenseType.Tenant)]
+    public void GetAllWithUnitCountDetails_Certain_gett_all(ResidenseType type)
+    {
+        var complex = ComplexFactory.Create();
+        var block = BlockFactory.Create(complex);
+        var unit = UnitFatory.Create(block, type);
+        DbContext.Save(unit);
+        var existingUnitCount = 1;
+
+        var expected = _sut.GetAllWithUnitCountDetails();
+
+        var actual = expected.Single();
+        actual.Name.Should().Be(block.Name);
+        actual.UnitCount.Should().Be(block.UnitCount);
+        actual.RegisterUnitCount.Should().Be(existingUnitCount);
+        actual.ReminaingUnitCount.Should().Be(block.UnitCount - existingUnitCount);
+    }
+
+    [Theory]
+    [InlineData(ResidenseType.Empty)]
+    [InlineData(ResidenseType.Owner)]
+    [InlineData(ResidenseType.Tenant)]
+    public void GetOneBlock_Certain(ResidenseType type)
+    {
+        var complex = ComplexFactory.Create();
+        var block = BlockFactory.Create(complex);
+        var unit = UnitFatory.Create(block, type);
+        DbContext.Save(unit);
+
+        var expected = _sut.GetById(block.Id);
+
+        expected.Name.Should().Be(block.Name);
+        expected.UnitsInBlock.Single().Name.Should().Be(unit.Name);
+        expected.UnitsInBlock.Single().Resedent.Should().Be(unit.ResidenseType.ToString());
+    }
+
+    [Fact]
+    public void UpdateById_Certain_update()
+    {
+        var complex = ComplexFactory.Create();
+        var block = BlockFactory.Create(complex);
+        DbContext.Save(block);
+        var dto = UpdateBlockDtoCreate();
+
+        _sut.Update(block.Id, dto);
+
+        var expecte = ReadContext.Set<Block>().Single();
+        expecte.UnitCount.Should().Be(dto.UnitCount);
+        expecte.Name.Should().Be(dto.Name);
+    }
+
+
+    [Fact]
+    public void UpdateById_Certain_block_not_found_exception()
+    {
+        var invalidBlockId = 0;
+        var dto = UpdateBlockDtoCreate();
+
+        var expected = () => _sut.Update(invalidBlockId, dto);
+
+        expected.Should().ThrowExactly<InvalidBlockIdExeption>();
+    }
+
+    [Theory]
+    [InlineData(ResidenseType.Empty)]
+    [InlineData(ResidenseType.Owner)]
+    [InlineData(ResidenseType.Tenant)]
+    public void UpdateById_Certain_block_has_units_exception(ResidenseType type)
+    {
+        var complex = ComplexFactory.Create();
+        var block = BlockFactory.Create(complex);
+        var unit = UnitFatory.Create(block, type);
+        DbContext.Save(unit);
+
+        var dto = UpdateBlockDtoCreate();
+
+        var expected = () => _sut.Update(block.Id, dto);
+
+        expected.Should().ThrowExactly<blockHasUnitsExeption>();
+    }
+
+    [Fact]
+    public void UpdateById_Certain_blockDuplacated_Name_exception()
+    {
+        var complex = ComplexFactory.Create();
+        var block = BlockFactory.Create(complex);
+        DbContext.Save(block);
+
+        var dto = new UpdateBlockDto()
+        {
+            Name = "dummy",
+            UnitCount = 20
+        };
+
+        var expected = () => _sut.Update(block.Id, dto);
+        expected.Should().ThrowExactly<BlockDuplicatedNameException>();
+    }
+
+    [Fact]
+    public void UpdateById_Certain_ComplexIsFuLLException()
+    {
+        var overFlowUnitCount = 51;
+        var complex = ComplexFactory.Create();
+        var block = BlockFactory.Create(complex);
+        DbContext.Save(block);
+        var dto = UpdateBlockDtoCreate(overFlowUnitCount);
+
+        var expected = () => _sut.Update(block.Id, dto);
+
+        expected.Should().ThrowExactly<ComplexIsFullException>();
+    }
+
+
+    private static AddBlockDto CreateBlockDto(int complexsId, int? unitCount = null)
     {
         return new AddBlockDto()
         {
             Name = "Dummy",
             ComplexId = complexsId,
-            UnitCount = unitCount??10
+            UnitCount = unitCount ?? 10
         };
     }
-    
+
+    private static UpdateBlockDto UpdateBlockDtoCreate(int? unitCount = null)
+    {
+        return new UpdateBlockDto
+        {
+            Name = "dummy_update",
+            UnitCount = unitCount ?? 10
+        };
+    }
 }

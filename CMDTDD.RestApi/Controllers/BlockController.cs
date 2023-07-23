@@ -19,5 +19,24 @@ public class BlockController : Controller
         _service.Add(dto);
     }
 
-    
+    [HttpGet]
+    public List<GetblockDto> GetAll()
+    {
+        return
+            _service.GetAllWithUnitCountDetails();
+    }
+
+    [HttpGet("{id}")]
+    public GetSingleBlockDto GetById([FromRoute] int id)
+    {
+        return
+            _service.GetById(id);
+    }
+
+    [HttpPut("{id}")]
+    public void Update([FromRoute] int id, [FromBody] UpdateBlockDto dto)
+    {
+        _service.Update(id,dto);
+    }
+
 }

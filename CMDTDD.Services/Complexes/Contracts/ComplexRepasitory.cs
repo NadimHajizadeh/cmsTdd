@@ -1,5 +1,6 @@
 using CMDTDD.Entities;
 using CMDTDD.Services.Complexes.Contracts.Dto;
+using CMS.Service.Unit.Test.Complexes;
 
 namespace CMDTDD.Services.Complexes.Contracts;
 
@@ -17,4 +18,6 @@ public interface ComplexRepasitory
     bool HasUnitsById(int complexId);
     void Delete(Complex complex);
     int GetUnitCount(int complexId);
+    int GetLeftUnitCounts(int complexId);
+    GetOneComplexWithBlockAndUnitcountDeatilAndDto GetOne(int id );
 }

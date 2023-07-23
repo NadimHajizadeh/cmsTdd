@@ -12,6 +12,7 @@ public class EFComplexRepasitory : ComplexRepasitory
     private readonly DbSet<ComplexUsageType> _complexUsageType;
     private readonly DbSet<UsageType> _usageType;
     private readonly DbSet<CMDTDD.Entities.Unit> _units;
+    private readonly DbSet<Block> _blocks;
 
 
     public EFComplexRepasitory(EFDataContext context)
@@ -20,6 +21,7 @@ public class EFComplexRepasitory : ComplexRepasitory
         _complexUsageType = context.Set<ComplexUsageType>();
         _usageType = context.Set<UsageType>();
         _units = context.Set<CMDTDD.Entities.Unit>();
+        _blocks = context.Set<Block>();
     }
 
     public void Add(Complex complex)
@@ -96,9 +98,8 @@ public class EFComplexRepasitory : ComplexRepasitory
 
     public bool HasUnitsById(int complexId)
     {
-
-        return 
-        _units.Any(_ => _.Block.ComplexId == complexId);
+        return
+            _units.Any(_ => _.Block.ComplexId == complexId);
 
         // var complex = _complexes.Where(_ => _.Id == id).Include(_ => _.Blocks)
         //     .ThenInclude(_ => _.Units);
@@ -117,6 +118,34 @@ public class EFComplexRepasitory : ComplexRepasitory
         return
             _complexes.Where(_ => _.Id == complexId)
                 .Select(_ => _.UnitCount)
+                .FirstOrDefault();
+    }
+
+    public int GetLeftUnitCounts(int complexId)
+    {
+        return
+            _blocks.Where(_ => _.ComplexId == complexId)
+                .Select(_ => _.UnitCount).Sum();
+    }
+
+
+
+    public GetOneComplexWithBlockAndUnitcountDeatilAndDto GetOne(int id)
+    {
+        return
+            _complexes
+                .Where(_ => _.Id == id)
+                .Select(_ => new
+                    GetOneComplexWithBlockAndUnitcountDeatilAndDto()
+                    {
+                        Id = _.Id,
+                        Name = _.Name,
+                        RegisterdUnitCount =
+                            _.Blocks.SelectMany(_ => _.Units).Count(),
+                        LeftUnitCount = _.UnitCount -
+                                        _.Blocks.SelectMany(_ => _.Units).Count(),
+                        BlockCount = _.Blocks.Count()
+                    })
                 .FirstOrDefault();
     }
 }

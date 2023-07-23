@@ -10,4 +10,8 @@
       <ProjectReference Include="..\CMDTDD.Entities\CMDTDD.Entities.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Units\Exeptions\" />
+    </ItemGroup>
+
 </Project>
