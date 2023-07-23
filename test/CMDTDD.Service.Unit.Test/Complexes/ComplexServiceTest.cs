@@ -139,7 +139,7 @@ public class ComplexServiceTest : BusinessUnitTest
             _sut.GetAllUsageTypesById(complex.Id);
 
         reseult.Should().HaveCount(2);
-        var a = new List<GetAllUsageTypesOfComplexDto>
+        var actual = new List<GetAllUsageTypesOfComplexDto>
         {
             new()
             {
@@ -152,15 +152,14 @@ public class ComplexServiceTest : BusinessUnitTest
                 UsageTypeName = usageType2.Name
             }
         };
-        reseult.Should().BeEquivalentTo(a);
+        reseult.Should().BeEquivalentTo(actual);
     }
 
     [Fact]
     public void GetAllUsageTypesById_Certain_exception_complex_not_found()
     {
         var invalidComplexId = 0;
-
-
+        
         var expected = () => _sut.GetAllUsageTypesById(invalidComplexId);
 
         expected.Should().ThrowExactly<InvalidComplexIdExeption>();
@@ -217,7 +216,6 @@ public class ComplexServiceTest : BusinessUnitTest
         _sut.Delete(complex.Id);
 
         var expected = ReadContext.Set<Complex>();
-
         expected.Should().BeEmpty();
     }
 

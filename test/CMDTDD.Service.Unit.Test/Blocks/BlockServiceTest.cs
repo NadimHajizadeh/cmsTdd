@@ -32,8 +32,7 @@ public class BlockServiceTest : BusinessUnitTest
         var dto = CreateBlockDto(complexs.Id);
 
         _sut.Add(dto);
-
-
+        
         var expected = ReadContext.Set<Block>().Single();
         expected.Name.Should().Be(dto.Name);
         expected.UnitCount.Should().Be(dto.UnitCount);
@@ -45,9 +44,8 @@ public class BlockServiceTest : BusinessUnitTest
     public void Add_Certain_exception_throw_invalid_complexId()
     {
         var invalidComplexId = 0;
-
         var dto = CreateBlockDto(invalidComplexId);
-
+        
         var expected = () => _sut.Add(dto);
 
         expected.Should().Throw<InvalidComplexIdExeption>();
@@ -203,22 +201,9 @@ public class BlockServiceTest : BusinessUnitTest
         var unitsToAdd = new List<UnitToAddBlockDto>();
         var complex = ComplexFactory.Create();
         DbContext.Save(complex);
-        var blockDto = new AddBlockDto()
-        {
-            Name = "majid",
-            ComplexId = complex.Id,
-            UnitCount = 12
-        };
-        var dto = new UnitToAddBlockDto()
-        {
-            Name = "dummy",
-            ResidenseType = type,
-        };
-        var dto2 = new UnitToAddBlockDto()
-        {
-            Name = "dummy2",
-            ResidenseType = type,
-        };
+        var blockDto = CreateBlockDto(complex.Id);
+        var dto = CreateUnitsDto(type);
+        var dto2 =CreateUnitsDto(type);
         unitsToAdd.Add(dto);
         unitsToAdd.Add(dto2);
 
@@ -229,6 +214,15 @@ public class BlockServiceTest : BusinessUnitTest
         expected.Units.Count.Should().Be(2);
         expected.Units.First().ResidenseType.Should().Be(dto.ResidenseType);
         expected.Units.Last().ResidenseType.Should().Be(dto2.ResidenseType);
+    }
+
+    private static UnitToAddBlockDto CreateUnitsDto(ResidenseType type)
+    {
+        return new UnitToAddBlockDto()
+        {
+            Name = "dummy",
+            ResidenseType = type,
+        };
     }
 
 

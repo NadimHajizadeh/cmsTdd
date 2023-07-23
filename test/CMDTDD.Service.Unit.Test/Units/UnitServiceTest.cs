@@ -19,7 +19,7 @@ namespace CMS.Service.Unit.Test.Units
             var repasitory = new EFUnitRepasitory(SetupContext);
             var unitOfWork = new EfUnitOfWork(SetupContext);
             var blockRepasitory = new EFBlockRepasitory(SetupContext);
-            _sut = new UnitAppService(unitOfWork, repasitory,blockRepasitory);
+            _sut = new UnitAppService(unitOfWork, repasitory, blockRepasitory);
         }
 
         [Theory]
@@ -39,7 +39,6 @@ namespace CMS.Service.Unit.Test.Units
             expected.ResidenseType.Should().Be(type);
             expected.BlockId.Should().Be(dto.BlockId);
             expected.Name.Should().Be(dto.Name);
-
         }
 
 
@@ -48,11 +47,12 @@ namespace CMS.Service.Unit.Test.Units
         {
             var invalidBlockId = 0;
             var dto = CreateUnitDto(ResidenseType.Empty, invalidBlockId);
-            
-            var expexted = ()=> _sut.Add(dto);
+
+            var expexted = () => _sut.Add(dto);
 
             expexted.Should().ThrowExactly<InvalidBlockIdExeption>();
         }
+
         [Fact]
         public void Add_Certain_Block_is_Full_exception()
         {
@@ -60,8 +60,8 @@ namespace CMS.Service.Unit.Test.Units
             var block = BlockFactory.Create(complex, 0);
             DbContext.Save(block);
             var dto = CreateUnitDto(ResidenseType.Empty, block.Id);
-            
-            var expexted = ()=> _sut.Add(dto);
+
+            var expexted = () => _sut.Add(dto);
 
             expexted.Should().ThrowExactly<BlockIsFullException>();
         }
