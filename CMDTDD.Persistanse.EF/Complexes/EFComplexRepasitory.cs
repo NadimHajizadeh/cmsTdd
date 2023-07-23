@@ -74,13 +74,13 @@ public class EFComplexRepasitory : ComplexRepasitory
         complexId)
     {
         return
-            (from cut in _complexUsageType
-                join u in _usageType on cut.UsageTypeId equals u.Id
-                where cut.ComplexId == complexId
+            (from complexUsageType in _complexUsageType
+                join usageType in _usageType on complexUsageType.UsageTypeId equals usageType.Id
+                where complexUsageType.ComplexId == complexId
                 select new GetAllUsageTypesOfComplexDto
                 {
-                    UsageTypeId = u.Id,
-                    UsageTypeName = u.Name
+                    UsageTypeId = usageType.Id,
+                    UsageTypeName = usageType.Name
                 }
             ).ToList();
     }
@@ -100,12 +100,6 @@ public class EFComplexRepasitory : ComplexRepasitory
     {
         return
             _units.Any(_ => _.Block.ComplexId == complexId);
-
-        // var complex = _complexes.Where(_ => _.Id == id).Include(_ => _.Blocks)
-        //     .ThenInclude(_ => _.Units);
-        //
-        // return 
-        // complex.Any(_ => _.Blocks.Any(_ => _.Units.Count() == 1));
     }
 
     public void Delete(Complex complex)
@@ -127,7 +121,6 @@ public class EFComplexRepasitory : ComplexRepasitory
             _blocks.Where(_ => _.ComplexId == complexId)
                 .Select(_ => _.UnitCount).Sum();
     }
-
 
 
     public GetOneComplexWithBlockAndUnitcountDeatilAndDto GetOne(int id)

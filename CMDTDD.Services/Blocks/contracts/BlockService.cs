@@ -11,4 +11,5 @@ public interface BlockService
     List<GetblockDto> GetAllWithUnitCountDetails();
     GetSingleBlockDto GetById(int blockId);
     void Update(int blockId, UpdateBlockDto dto);
+    void AddWithUnit(AddBlockDto blockDto, List<UnitToAddBlockDto> unitsToAdd);
 }

@@ -38,12 +38,12 @@ public class BlockAppService : BlockService
 
         var usedBlockUnittIncomplex = _complexRepasitory.GetLeftUnitCounts(dto.ComplexId);
         var letfUnit = complexUnitCount - usedBlockUnittIncomplex;
-        if (letfUnit<dto.UnitCount)
+        if (letfUnit < dto.UnitCount)
         {
             throw new ComplexIsFullException();
         }
 
-        
+
         var block = new Block()
         {
             Name = dto.Name,
@@ -83,6 +83,7 @@ public class BlockAppService : BlockService
         {
             throw new blockHasUnitsExeption();
         }
+
         var isDuplicatedName = _repasitory
             .GetDuplicatedNameById(dto.Name);
         if (isDuplicatedName)
@@ -91,18 +92,42 @@ public class BlockAppService : BlockService
         }
 
         var leftUnitCount = _complexRepasitory.GetLeftUnitCounts(complexId);
-        if (leftUnitCount<dto.UnitCount)
+        if (leftUnitCount < dto.UnitCount)
         {
             throw new ComplexIsFullException();
         }
-        
-       
-        
+
+
         block.UnitCount = dto.UnitCount;
         block.Name = dto.Name;
 
         _repasitory.Update(block);
         _unitOfWork.Complete();
+    }
 
+    public void AddWithUnit(AddBlockDto blockDto, List<UnitToAddBlockDto> unitsToAdd)
+    {
+        var units = new HashSet<CMDTDD.Entities.Unit>();
+        var blok = new Block()
+        {
+            Name = blockDto.Name,
+            ComplexId = blockDto.ComplexId,
+            UnitCount = blockDto.UnitCount
+        };
+
+
+        foreach (var unit in unitsToAdd)
+        {
+            units.Add(new CMDTDD.Entities.Unit()
+            {
+                Block = blok,
+                ResidenseType = unit.ResidenseType,
+                Name = unit.Name
+            });
+        }
+
+        blok.Units = units;
+        _repasitory.Add(blok);
+        _unitOfWork.Complete();
     }
 }

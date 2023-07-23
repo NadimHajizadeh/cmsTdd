@@ -5,7 +5,9 @@ using CMS.Service.Unit.Test.Complexes;
 using CMS.Service.Unit.Test.DataBaseConfig;
 using CMS.Service.Unit.Test.DataBaseConfig.Unit;
 using CMS.Service.Unit.Test.Factory;
+using CMS.Service.Unit.Test.Units;
 using FluentAssertions;
+using Microsoft.EntityFrameworkCore;
 using SQLitePCL;
 
 namespace CMS.Service.Unit.Test.Blocks;
@@ -190,6 +192,43 @@ public class BlockServiceTest : BusinessUnitTest
         var expected = () => _sut.Update(block.Id, dto);
 
         expected.Should().ThrowExactly<ComplexIsFullException>();
+    }
+
+    [Theory]
+    [InlineData(ResidenseType.Empty)]
+    [InlineData(ResidenseType.Owner)]
+    [InlineData(ResidenseType.Tenant)]
+    public void AddWithUnits(ResidenseType type)
+    {
+        var unitsToAdd = new List<UnitToAddBlockDto>();
+        var complex = ComplexFactory.Create();
+        DbContext.Save(complex);
+        var blockDto = new AddBlockDto()
+        {
+            Name = "majid",
+            ComplexId = complex.Id,
+            UnitCount = 12
+        };
+        var dto = new UnitToAddBlockDto()
+        {
+            Name = "dummy",
+            ResidenseType = type,
+        };
+        var dto2 = new UnitToAddBlockDto()
+        {
+            Name = "dummy2",
+            ResidenseType = type,
+        };
+        unitsToAdd.Add(dto);
+        unitsToAdd.Add(dto2);
+
+        _sut.AddWithUnit(blockDto, unitsToAdd);
+
+        var expected = ReadContext.Set<Block>().Include(_=>_.Units).Single();
+        expected.Name.Should().Be(blockDto.Name);
+        expected.Units.Count.Should().Be(2);
+        expected.Units.First().ResidenseType.Should().Be(dto.ResidenseType);
+        expected.Units.Last().ResidenseType.Should().Be(dto2.ResidenseType);
     }
 
 

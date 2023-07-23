@@ -31,5 +31,6 @@
     &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Units.UnitServiceTest.Add_Certain_incalid_blockId_exception&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Units.UnitServiceTest.Add_Certain_Block_is_Full_exception&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Complexes.ComplexServiceTest.GetOne_Certain&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::82D41774-C1D6-465F-AC6D-75F84601D68A::net6.0::CMS.Service.Unit.Test.Blocks.BlockServiceTest.AddWithUnits&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
